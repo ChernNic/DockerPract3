@@ -1,0 +1,14 @@
+# Используем базовый образ с JDK (Java Development Kit)
+FROM openjdk:latest
+
+# Создаем рабочую директорию внутри контейнера
+WORKDIR /app
+
+# Копируем файл calc.java в рабочую директорию контейнера
+COPY calc.java /app
+
+# Компилируем calc.java
+RUN javac calc.java
+
+# Указываем команду для запуска Java-класса
+CMD ["java", "calc"]

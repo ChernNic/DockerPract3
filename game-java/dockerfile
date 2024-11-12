@@ -1,0 +1,14 @@
+# Используем базовый образ с JDK (Java Development Kit)
+FROM openjdk:latest
+
+# Создаем рабочую директорию внутри контейнера
+WORKDIR /app
+
+# Копируем файл game.java в рабочую директорию контейнера
+COPY game.java /app
+
+# Компилируем game.java
+RUN javac game.java
+
+# Указываем команду для запуска Java-класса
+CMD ["java", "game"]
